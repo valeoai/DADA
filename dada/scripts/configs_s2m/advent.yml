@@ -1,0 +1,26 @@
+SOURCE: SYNTHIA
+TARGET: Mapillary
+NUM_CLASSES: 7
+DATA_LIST_TARGET: ../dataset/mapillary_list/{}.txt
+DATA_DIRECTORY_TARGET: ../../data/Mapillary
+EXP_NAME: SYNTHIA2Mapillary_DeepLabv2_AdvEnt_7classes
+NUM_WORKERS: 4
+USE_DEPTH: False
+TRAIN:
+  DA_METHOD: AdvEnt
+  SET_TARGET: train
+  INFO_TARGET: ../dataset/mapillary_list/info.json
+  INPUT_SIZE_TARGET:
+    - 1024
+    - 768
+  MODEL: DeepLabv2
+  RESTORE_FROM: ../../pretrained_models/DeepLab_resnet_pretrained_imagenet.pth
+TEST:
+  MODE: best
+  MODEL:
+    - DeepLabv2
+  SET_TARGET: validation
+  INFO_TARGET: ../dataset/mapillary_list/info.json
+  INPUT_SIZE_TARGET:
+    - 1024
+    - 768

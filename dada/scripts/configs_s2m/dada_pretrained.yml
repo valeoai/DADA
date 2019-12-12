@@ -1,0 +1,17 @@
+SOURCE: SYNTHIA
+TARGET: Mapillary
+NUM_CLASSES: 7
+DATA_LIST_TARGET: ../dataset/mapillary_list/{}.txt
+DATA_DIRECTORY_TARGET: ../../data/Mapillary
+EXP_NAME: SYNTHIA2Mapillary_DeepLabv2_DADA_7classes_pretrained
+NUM_WORKERS: 4
+USE_DEPTH: True
+TEST:
+  MODE: single
+  SET_TARGET: validation
+  INFO_TARGET: ../dataset/mapillary_list/info.json
+  INPUT_SIZE_TARGET:
+    - 1024
+    - 768
+  RESTORE_FROM:
+    - ../../pretrained_models/synthia2mapillary_dada.pth

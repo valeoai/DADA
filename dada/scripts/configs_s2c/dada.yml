@@ -1,0 +1,11 @@
+SOURCE: SYNTHIA
+TARGET: Cityscapes
+EXP_NAME: SYNTHIA2Cityscapes_DeepLabv2_DADA
+NUM_WORKERS: 4
+USE_DEPTH: True
+TRAIN:
+  DA_METHOD: DADA
+  MODEL: DeepLabv2_depth
+  RESTORE_FROM: ../../pretrained_models/DeepLab_resnet_pretrained_imagenet.pth
+TEST:
+  MODE: best
