@@ -101,6 +101,7 @@ class MapillaryDataSet(BaseDataset):
                                                         class_mappings,
                                                         class_list)
         self.class_names = list(class_list.keys())
+        self.bg_idx = len(self.info['labels']) - 1
 
     def get_metadata(self, name):
         img_file = self.root / self.set / 'images' / name
@@ -121,11 +122,11 @@ class MapillaryDataSet(BaseDataset):
             label = resize_with_pad(    self.image_size, 
                                         label,
                                         Image.NEAREST,
-                                        fill_value=len(self.class_names) - 1)
+                                        fill_value=self.bg_idx)
         else:
             label = pad_with_fixed_AS(  self.image_size[0]/self.image_size[1],
                                         label,
-                                        fill_value=len(self.class_names) - 1)
+                                        fill_value=self.bg_idx)
         if self.map_vector is not None:
             label = self.map_labels(label).copy()
 
