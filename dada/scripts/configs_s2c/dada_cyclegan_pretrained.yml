@@ -1,0 +1,9 @@
+SOURCE: SYNTHIA
+TARGET: Cityscapes
+EXP_NAME: SYNTHIA2Cityscapes_DeepLabv2_DADA_pretrained
+NUM_WORKERS: 4
+USE_DEPTH: True
+TEST:
+  MODE: single
+  RESTORE_FROM:
+    - ../../pretrained_models/synthia2cityscapes_dada_cyclegan.pth

@@ -1,5 +1,8 @@
 # DADA: Depth-aware Domain Adaptation in Semantic Segmentation
 
+## Updates
+- *02/2020*: Using CycleGAN translated images, The DADA model achieves (**43.1%**) on SYNTHIA-2-Cityscapes
+
 ## Paper
 ![](./teaser.png)
 
@@ -99,6 +102,7 @@ For evaluating pretrained networks, execute:
 ```bash
 $ cd DADA/dada/scripts
 $ python test.py --cfg ./<configs_dir>/dada_pretrained.yml
+$ python test.py --cfg ./<configs_dir>/dada_cyclegan_pretrained.yml
 ```
 
 ```<configs_dir>``` could be set as ```configs_s2c``` (```SYNTHIA2Cityscapes```) or ```configs_s2m``` (```SYNTHIA2Mapillary```)
